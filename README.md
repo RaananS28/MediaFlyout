@@ -29,7 +29,7 @@ A light system tray flyout that provides an alternate easy access to control med
 ### ✨ Key Features
 - **Cross-Architecture:** Native builds provided for **x64** (Standard PCs) and **ARM64** (Apple Silicon/Snapdragon).
 - **Theme-Aware:** Supports both Light and Dark Modes natively.
-- **Transparency Support:** Supports Acryllic.
+- **Transparency Support:** Supports Acrylic.
 - **Ultra-Lightweight:** Negligible CPU and Memory footprint.
 
 ### 🚀 How to Run
