@@ -31,7 +31,6 @@ A light system tray flyout that provides an alternate easy access to control med
 - **Theme-Aware:** Supports both Light and Dark Modes natively.
 - **Transparency Support:** Supports Acryllic.
 - **Ultra-Lightweight:** Negligible CPU and Memory footprint.
-- **Vibe-Coded:** Developed through iterative AI-assisted design and rapid prototyping.
 
 ### 🚀 How to Run
 1.  Navigate to the [Releases](https://github.com/Raanans28/MediaFlyout/releases) tab.
@@ -43,16 +42,22 @@ A light system tray flyout that provides an alternate easy access to control med
 > **Tip:** To make it start with Windows, press `Win + R`, type `shell:startup`, and place a shortcut to the EXE in that folder.
 
 ### 📖 How to Use
-<br>To access the flyout, check the system tray for a ▶︎ icon in it and click it.<br>
-<br>To minimise the flyout, simply click outside or the "Ⅹ" icon at the top right.<br>
-<br>To adjust volume, simply scroll on the flyout.<br>
-<br>To completely close the flyout, simply right click the icon in the tray and select exit. <br>
+- Click the ▶ icon in the system tray to open the flyout  
+- Click outside the flyout or press the "Ⅹ" button to close it  
+- Scroll on the flyout to adjust volume  
+- Right-click the tray icon → **Exit** to fully close the app  
+
 
 ### 🛠️ Tech Stack
 - **Framework:** .NET 8 / WPF
 - **Language:** C#
 - **Styling:** Custom XAML
 - **Development:** .NET CLI
+
+## ⚠️ Notes
+
+- This project was built using AI and is classified as "Vibe Coding". 
+- The focus was on achieving a clean Windows-style UI rather than strict adherence to best practices.
 
 ---
 *Developed as a personal project focusing on UI consistency and architecture-aware distribution.*
