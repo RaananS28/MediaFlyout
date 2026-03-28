@@ -1,0 +1,109 @@
+﻿<Window x:Class="MediaFlyout.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MediaFlyout" Height="130" Width="360" 
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        ShowInTaskbar="False" Topmost="True" Deactivated="Window_Deactivated"
+        MouseWheel="Window_MouseWheel" SnapsToDevicePixels="True">
+
+    <Window.Resources>
+        <Style x:Key="TransportButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Window}}"/>
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#33888888"/> 
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.3"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CloseButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Window}}"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#E81123"/> 
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border x:Name="MainBorder" BorderThickness="1">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="135"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" ClipToBounds="True" Background="Transparent">
+                <Image x:Name="ImgBlurBg" Stretch="UniformToFill" Opacity="0.35">
+                    <Image.Effect>
+                        <BlurEffect Radius="15" KernelType="Gaussian"/>
+                    </Image.Effect>
+                </Image>
+
+                <Image x:Name="ImgAlbumArt" Stretch="Uniform" 
+                       RenderOptions.BitmapScalingMode="HighQuality"
+                       Margin="8" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                
+                <TextBlock x:Name="TxtIcon" Text="&#xE93C;" FontFamily="Segoe MDL2 Assets" 
+                           Foreground="#888888" FontSize="40" 
+                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                           
+                <Border x:Name="SeparatorLine" BorderThickness="0,0,1,0" HorizontalAlignment="Right"/>
+            </Grid>
+
+            <Grid Grid.Column="1" Background="Transparent">
+                <StackPanel VerticalAlignment="Center" Margin="15,10,15,0">
+                    <TextBlock x:Name="TxtTitle" Text="Waiting..." 
+                               FontSize="12" FontWeight="Bold" TextTrimming="CharacterEllipsis"/>
+                    <TextBlock x:Name="TxtArtist" Text="System Controller" 
+                               FontSize="11" Margin="0,2,0,12" TextTrimming="CharacterEllipsis"/>
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="BtnPrev" Content="&#xE892;" FontFamily="Segoe MDL2 Assets" 
+                                Click="Prev_Click" Style="{StaticResource TransportButton}"/>
+                        <Button x:Name="BtnPlayPause" Content="&#xE768;" FontFamily="Segoe MDL2 Assets" 
+                                Click="PlayPause_Click" Style="{StaticResource TransportButton}" Margin="5,0,5,0"/>
+                        <Button x:Name="BtnNext" Content="&#xE893;" FontFamily="Segoe MDL2 Assets" 
+                                Click="Next_Click" Style="{StaticResource TransportButton}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+            <Button x:Name="BtnClose" Grid.ColumnSpan="2" Content="&#xE8BB;" FontFamily="Segoe MDL2 Assets" 
+                    HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Width="32" Height="28" Background="Transparent"
+                    BorderThickness="0" FontSize="9" Click="Close_Click" Padding="0"
+                    Style="{StaticResource CloseButtonStyle}">
+            </Button>
+        </Grid>
+    </Border>
+</Window>
